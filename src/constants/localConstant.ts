@@ -1,0 +1,6 @@
+const LOCAL_CONSTANTS = {
+    ACCESS: "ACCESS_TOKEN"
+}
+
+
+export { LOCAL_CONSTANTS }

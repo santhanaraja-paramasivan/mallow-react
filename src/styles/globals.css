@@ -1,0 +1,53 @@
+@import url("ag-grid-community/styles/ag-grid.css");
+@import url("ag-grid-community/styles/ag-theme-quartz.css");
+@import url("./Header.css");
+@import url("./UserCard.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --background-color: #fdfdfd;
+  --background-color-light: #ffe9be;
+  --primary-yellow: #ffc800;
+
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: var(--background-color);
+  margin: 0;
+}
+
+.ant-tabs-nav{
+  margin: 0 !important;
+}
+.app-header {
+  height: var(--header-height);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(134, 134, 134);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(99, 99, 99);
+  cursor: pointer;
+}
