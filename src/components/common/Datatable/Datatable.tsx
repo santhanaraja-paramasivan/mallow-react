@@ -10,6 +10,7 @@ interface DataTableProps {
   totalUsers: number;
   currentPage: number;
   onPageChange: (page: number) => void;
+  onDelete: (id: string) => void;
 }
 
 const DataTableComponent: React.FC<DataTableProps> = ({
@@ -17,6 +18,7 @@ const DataTableComponent: React.FC<DataTableProps> = ({
   totalUsers,
   currentPage,
   onPageChange,
+  onDelete
 }) => {
   const dispatch = useAppDispatch();
   const handleEditUser = (user: any) => {
@@ -24,7 +26,7 @@ const DataTableComponent: React.FC<DataTableProps> = ({
     dispatch(updateSelectedUser(user));
   };
   const handleDeleteUser = (user: any) => {
-    dispatch(updateSelectedUser(user));
+    onDelete(user.id)
   };
   return (
     <Table<DataType>

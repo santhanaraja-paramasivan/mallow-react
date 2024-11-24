@@ -46,9 +46,13 @@ const Homepage = () => {
 
   const [createUser, { isLoading: isCreating }] = useCreateUserMutation();
   const [deleteUser] = useDeleteUserMutation();
-
+  const [userCollection, setUserCollection] = useState(userList)
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput(e.target.value);
+    const { value } = e.target;
+    setUserInput(value);
+    const updatedData = userCollection.filter((data: any) => (data.email.includes(value) || data.first_name.includes(value) || data.last_name.includes(value)));
+    setUserCollection(updatedData)
   };
 
   const handleDeleteUser = async (userId: string) => {
@@ -133,14 +137,15 @@ const Homepage = () => {
           />
         ) : selectedTab === "1" ? (
           <DataTableComponent
-            userList={userList}
+            userList={userCollection}
             totalUsers={total}
             currentPage={currentPage}
             onPageChange={handlePageChange}
+            onDelete={handleDeleteUser}
           />
         ) : (
           <Row gutter={[16, 16]} className="py-4">
-            {userList?.map((user: any, index: number) => (
+            {userCollection?.map((user: any, index: number) => (
               <Col xs={24} sm={12} md={8} lg={6} key={index}>
                 <UserCard
                   name={user.first_name}
